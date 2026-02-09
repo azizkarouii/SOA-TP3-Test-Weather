@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const API_KEY = "1aa3b3a2a30479c44d2b14e77bed9a07";
-const BASE_URL ="http://api.openweathermap.org/data/2.5/weather?appid=" + API_KEY + "&q=";
+const BASE_URL ="http://api.openweathermap.org/data/2.5/weather?appid=" + API_KEY + "&units=metric&q=";
 
 // rraduction ang -> fr
 function translateWeatherDescription(description) {
@@ -46,13 +46,12 @@ async function printWeather(city) {
     try {
         const weatherData = await getWeatherData(city);
         
-        // Conversion de Kelvin vers Celsius
-        const tempCelsius = (weatherData.main.temp - 273.15).toFixed(1);
+        const tempCelsius = weatherData.main.temp;
         
-        // Traduction de la description
+        // traduire temp
         const descriptionFr = translateWeatherDescription(weatherData.weather[0].description);
         
-        console.log(`\nMétéo pour ${city.charAt(0).toUpperCase() + city.slice(1)} 🌤️`);
+        console.log(`\nMétéo pour ${city}`);
         console.log(`Température: ${tempCelsius}°C`);
         console.log(`Humidité: ${weatherData.main.humidity}%`);
         console.log(`Description: ${descriptionFr}\n`);
