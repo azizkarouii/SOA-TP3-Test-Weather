@@ -54,6 +54,7 @@ async function printWeather(city) {
         
         console.log(`\n🌤️  Météo pour ${city.charAt(0).toUpperCase() + city.slice(1)} 🌤️`);
         console.log(`🌡️  Température: ${tempCelsius}°C`);
+        console.log(`💨  Humidité: ${weatherData.main.humidity}%`);
         console.log(`☁️  Description: ${descriptionFr}\n`);
         
     } catch (error) {
