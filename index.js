@@ -52,13 +52,13 @@ async function printWeather(city) {
         // Traduction de la description
         const descriptionFr = translateWeatherDescription(weatherData.weather[0].description);
         
-        console.log(`\n🌤️  Météo pour ${city.charAt(0).toUpperCase() + city.slice(1)} 🌤️`);
-        console.log(`🌡️  Température: ${tempCelsius}°C`);
-        console.log(`💨  Humidité: ${weatherData.main.humidity}%`);
-        console.log(`☁️  Description: ${descriptionFr}\n`);
+        console.log(`\nMétéo pour ${city.charAt(0).toUpperCase() + city.slice(1)} 🌤️`);
+        console.log(`Température: ${tempCelsius}°C`);
+        console.log(`Humidité: ${weatherData.main.humidity}%`);
+        console.log(`Description: ${descriptionFr}\n`);
         
     } catch (error) {
-        console.error(`❌ Erreur lors de la récupération des données météo: ${error.message}`);
+        console.error(`Erreur lors de la récupération des données météo: ${error.message}`);
     }
 }
 printWeather("Sousse");
